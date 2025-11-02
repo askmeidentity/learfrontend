@@ -6,7 +6,8 @@ export default function Sidebar({ setPage }) {
       <h2>Menu</h2>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         <li style={{ padding: '10px 0', cursor: 'pointer' }} onClick={() => setPage('environment')}>Environment</li>
-        <li style={{ padding: '10px 0', cursor: 'pointer' }} onClick={() => setPage('userManagement')}>User Management</li>
+        <li style={{ padding: '10px 0', cursor: 'pointer' }} onClick={() => setPage('bulkpwreset')}>Bulk Password Reset</li>
+        <li style={{ padding: '10px 0', cursor: 'pointer' }} onClick={() => setPage('bulkMfareset')}>Bulk MFA Reset</li>
       </ul>
     </div>
   );
