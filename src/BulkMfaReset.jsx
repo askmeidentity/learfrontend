@@ -12,6 +12,7 @@ export default function BulkMfaReset() {
   const [resetOktaTOTP, setResetOktaTOTP] = useState(false);
   const [resetSMS, setResetSMS] = useState(false);
   const [resetSecurityQuestion, setResetSecurityQuestion] = useState(false);
+  const [resetFastPass, setResetFastPass] = useState(false);
 
   const handleFileUpload = e => {
     const file = e.target.files[0];
@@ -51,6 +52,7 @@ export default function BulkMfaReset() {
         sms: resetSMS,
         question: resetSecurityQuestion,
         'token:software:totp': resetOktaTOTP,
+        signed_nonce: resetFastPass,
       };
 
       try {
@@ -172,6 +174,17 @@ export default function BulkMfaReset() {
             <label style={{ display: 'block', marginBottom: 6, color: '#374151' }}>
               <input
                 type="checkbox"
+                checked={resetFastPass}
+                onChange={e => setResetFastPass(e.target.checked)}
+                style={{ marginRight: 6 }}
+                disabled={isProcessing}
+              />
+              Okta Verify Fastpass
+            </label>
+
+            <label style={{ display: 'block', marginBottom: 6, color: '#374151' }}>
+              <input
+                type="checkbox"
                 checked={resetSMS}
                 onChange={e => setResetSMS(e.target.checked)}
                 style={{ marginRight: 6 }}
@@ -188,7 +201,7 @@ export default function BulkMfaReset() {
                 style={{ marginRight: 6 }}
                 disabled={isProcessing}
               />
-              Secureity Question
+              Security Question
             </label>
           </fieldset>
 
